@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="form-container">
+
+        <form >
+           <h3>Students Details</h3>
+           
+           <input type="text" name="Name" required placeholder="Enter your Name">
+           <input type="date" name="Date of Birth">
+        
+           <p style="text-align:left; font-size: large;">Blood Group:- </p>
+           <select name="Blood Group">
+               <option value="op">O+</option>
+               <option value="on">O-</option>
+               <option value="ap">A+</option>
+               <option value="an">A-</option>
+               <option value="bp">B+</option>
+               <option value="bn">B-</option>
+               <option value="abp">AB+</option>
+               <option value="abn">AB-</option>
+            </select>
+           <p style="text-align:left; font-size: large;">Are you Vaccinated:- </p>
+           <select name="Vaccinated">
+               <option value="y">Yes</option>
+               <option value="n">No</option>
+            </select>
+           
+           <input type="submit" name="submit" value="submit" class="form-btn">
+           
+        </form>
+        
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzgY-3F95DC4vG_-c_jrN-RletXxTiY9h4SVGGaMnZ4K09xbtNrum8rK_d0jm1U0d6uBg/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     </div>
+</body>
+</html>
